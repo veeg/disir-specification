@@ -1,0 +1,12 @@
+= Disir Specification
+
+This repository contains all formal specification related to the Disir ecosystem.
+The writing style of the specification attempts to be relaxed, explaining the concept
+and the rules rather than a strict formal language.
+
+== Versioning
+
+All specifications following a versioning scheme made up of a issue and a revision.
+All specifications on issue `0` may contain incompatible changes for each of its revision.
+Revisions on an issue greater than `0` will always have backwards compatible changes.
+Updating the issue number may change the specification in a backwards incompatible way.
