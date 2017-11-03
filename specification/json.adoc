@@ -291,7 +291,7 @@ This entry should NOT be present unless the element is deprecated.
 It MUST contain ONE dot (.), separating two non-negative integers.
 
 "elements":: The presence of this key indicate that the element is a section.
-Its value must be an object, which contains keys two represent elements within this section.
+Its value must be an object, which contains keys too represent elements within this section.
 All values of these keys must be another object, where either the object represent a
 keyval or section.
 
