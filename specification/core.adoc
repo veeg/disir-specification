@@ -135,7 +135,8 @@ Type:: The type of restriction. The following types are available:
   the default value employed is "0".
 * RESTRICTION_INCLUSIVE_ENTRY_MAX: The maximum number of elements of this kind that
   may be present in the configuration entry for it to be valid. If not present,
-  the default value employed is "1".
+  the default value employed is "1". If set to "0", there may be unlimited
+  occurrences of this element.
 +
 The restriction is invalid if no type is present.
 If multiple restrictions of the same type is present on the same element, they cannot
