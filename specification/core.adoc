@@ -328,3 +328,65 @@ restrictions applied in its mold equivalent definition. Adding elements that vio
 inclusive restrictions does not turn that the root is invalid; rather, all
 the afflicted elements are marked invalid instead.
 
+
+== Query Element Syntax
+
+The set of elements sprouting from either config or mold object resembles a tree structure,
+with the root object (config or mold) as the single root of the tree.
+Each entry in the elements container is a branch point. The keyval element will always
+be a leaf node in the tree.
+
+There is a unified query syntax to reference specific elements, regardless of the root
+object type.
+
+.Example configuration object
+----
+name = "Operational facility"
+users:
+  name = "Pete"
+  name = "Karen"
+  name = "Luke"
+destination:
+  hostname = "www.neptune.com"
+  port = 8001
+  credentials:
+    username = "elon"
+    password = "hunter2"
+destination:
+  hostname = "www.jupiter.com"
+  port = 8002
+destination:
+  hostname = "www.mars.com
+  port 8004
+----
+
+To reference either a keyval or section from the root object, simply query by direct name.
+
+[horizontal]
+`name`:: Resolve to the value _Operational facility_.
+
+To reference a keyval within a section, the delimiter to separate the two names is the
+punctional mark (`.`).
+
+[horizontal]
+`users.name`:: Resolves to the value _Pete_.
+
+When multiple instances of the same key exist, we can query based on _index_.
+The index is specified by the at sign (`@`) after the name portion, and the integer denoting
+the index. When no such index is present, the default index of 0 is chosen.
+The index begins counting from zero.
+
+[horizontal]
+`users.name@1`:: Resolves to the value _Karen_.
+`users.name@2`:: Resolves to the value _Luke_.
+
+The index specifier is also applicable when there are multiple instances of a section present.
+
+[horizontal]
+`destination.hostname`:: Resolves to the value _www.neptune.com_.
+`destination@2.hostname`:: Resolves to the value _www.mars.com_.
+
+Sections can be nested, indefinitely.
+
+[horizontal]
+`destination.credentials.password`:: Revoles to the value _hunter2_.
